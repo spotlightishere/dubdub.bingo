@@ -109,6 +109,43 @@
 			.invis {
 				visibility: hidden;
 			}
+
+			/* Mobile improvements */
+			@media screen and (max-width: 768px) {
+				table {
+					width: 100%;
+					height: 100%;
+					display: inline-block;
+					overflow: auto;
+					padding-left: 10px;
+					padding-right: 10px;
+					margin-left: 10px;
+					margin-right: 10px;
+				}
+
+				td {
+					--dimension: 5.6rem;
+					min-width: var(--dimension);
+					min-height: var(--dimension);
+					width: var(--dimension);
+					height: var(--dimension);
+					max-width: var(--dimension);
+					max-height: var(--dimension);
+				}
+
+				a.new-card-button {
+					margin-bottom: 1rem;
+				}
+			}
+
+			/* Improve button placement on iPhone SE and similar-sized devices */
+			@media screen and (max-height: 667px) {
+				table {
+					margin-bottom: 0.5rem;
+				}
+				
+			}
+
 		</style>
 	</head>
 	<body>
