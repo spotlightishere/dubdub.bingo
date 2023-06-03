@@ -6,28 +6,44 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 		<style type="text/css">
+			/* Used to allow displaying logo glyph if unavailable */
+			@font-face {
+				font-family: "Custom Glyph Fallback";
+				src: url("./fonts/apple_glyph_fallback.woff");
+			}
+
 			body {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+				font-family: "SF Pro Display", "Custom Glyph Fallback", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 				color: white;
 				min-height: 100vh;
 				margin: 0;
 				background-color: black;
 			}
+
 			h1 {
 				margin-bottom: 0;
 			}
+
+			.source-code {
+				color: rgb(41, 151, 255);
+				text-decoration: none;
+			}
+
+			/* Main card segment */
 			table {
 				width: min(80vw, 75vh);
 				height: min(80vw, 75vh);
 				margin-top: 1em;
 				margin-bottom: 1em;
 			}
+
 			tr {
 				height: 20%;
 			}
+
 			td {
 				width: 20%;
 				max-width: 160px;
@@ -36,17 +52,29 @@
 				border: 1px solid black;
 				text-align: center;
 				border-radius: 8px;
-			}
-			td a {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-				height: 100%;
+				padding: 5px;
+				font-size: 1em;
 			}
 
+			td div {
+				display: flex;
+				justify-content: space-evenly;
+			}
+
+			/* Cell colors */
+			.cell-checked {
+				background-color: rgb(0, 113, 227);
+				color: white;
+			}
+
+			.cell-unchecked {
+				background-color: rgb(29, 29, 31);
+				color: rgb(170, 170, 170);
+			}
+
+
+			/* Shamelessly stealing this from developer.apple.com, don't mind me... */
 			.new-card-button {
-				/* Shamelessly stealing this from developer.apple.com, don't mind me... */
 				text-decoration: none;
 				background-color: #006EDB;
 				color: white;
@@ -57,8 +85,9 @@
 				font-size: 17px;
 				font-weight: 400;
 				letter-spacing: -.022em;
-				font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+				font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial",sans-serif;
 				min-width: 28px;
+
 				padding-left: 16px;
 				padding-right: 16px;
 				padding-top: 8px;
@@ -66,14 +95,6 @@
 				border-radius: 18px;
 			}
 
-			.cell-checked {
-				background-color: rgb(0, 113, 227);
-				color: white;
-			}
-			.cell-unchecked {
-				background-color: rgb(29, 29, 31);
-				color: rgb(170, 170, 170);
-			}
 			#confetti {
 				position: fixed;
 				top: 0;
@@ -82,22 +103,9 @@
 				height: 100vh;
 				pointer-events: none;
 			}
-			.source-code {
-				color: rgb(41, 151, 255);
-				text-decoration: none;
-			}
-			
+
 			.invis {
 				visibility: hidden;
-			}
-			td div {
-				display: flex;
-				justify-content: space-evenly;
-			}
-			td div a {
-				width: auto;
-				height: auto;
-				padding: 2px;
 			}
 		</style>
 	</head>
