@@ -175,7 +175,7 @@ function getNewCardURL(year) {
 	if (numBingos > 0) {
 		setTimeout(() => {
 			confetti.addConfetti({
-				emojis: ["⚡️", "💥", "🔥"],
+				emojis: ["🍎", "🍏", "📱"],
 				confettiNumber: 20 * numBingos,
 			})
 		}, 1000)
@@ -187,6 +187,6 @@ function getNewCardURL(year) {
 	if (numBingos === possibleBingos.length) {
 		// Lets add a little easter egg just in case we fill a card
 		const marquee = document.getElementById("bingo")
-		marquee.innerText = "🔥".repeat(500)
+		marquee.innerText = "🍎".repeat(500)
 	}
 })()
