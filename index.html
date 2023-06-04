@@ -112,13 +112,23 @@
 
 			/* Mobile improvements */
 			@media screen and (max-width: 768px) {
+				body {
+					overflow-x: hidden;
+				}
+
+				.table-container {
+					width: 100%;
+					overflow-x: auto;
+					margin-left: 10px;
+					margin-right: 10px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					max-width: 600px;
+				}
+
 				table {
 					width: 100%;
-					height: 100%;
-					display: inline-block;
-					overflow: auto;
-					padding-left: 10px;
-					padding-right: 10px;
 					margin-left: 10px;
 					margin-right: 10px;
 				}
@@ -137,6 +147,7 @@
 					margin-bottom: 1rem;
 				}
 			}
+
 
 			/* Improve button placement on iPhone SE and similar-sized devices */
 			@media screen and (max-height: 667px) {
