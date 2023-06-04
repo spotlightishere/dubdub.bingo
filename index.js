@@ -152,8 +152,10 @@ function getNewCardURL(year) {
 
 		table.appendChild(row)
 	}
-
-	document.querySelector("body").appendChild(table)
+	const tableContainer = document.createElement("div");
+	tableContainer.className = "table-container"
+	tableContainer.appendChild(table);
+	document.querySelector("body").appendChild(tableContainer);
 
 	// New card button
 	const newCard = document.createElement("a")
