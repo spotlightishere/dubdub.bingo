@@ -82,7 +82,7 @@ function random(seed) {
 	return x - Math.floor(x)
 }
 
-function createBingoCell(phrase, uttered) {
+function createBingoCell(phrase, uttered, cellIndex) {
 	const cell = document.createElement("td")
 	cell.innerText = phrase
 
@@ -91,7 +91,19 @@ function createBingoCell(phrase, uttered) {
 	} else {
 		cell.className = "cell-checked"
 	}
+	cell.id = `cell-${cellIndex}`
+	cell.addEventListener("click", toggleChecked, false)
 	return cell
+}
+
+function toggleChecked(cellElement) {
+	const cell = cellElement.target;
+	if (cell.className === "cell-unchecked") {
+		cell.className = "cell-checked"
+	} else {
+		cell.className = "cell-unchecked"
+	}
+	evaluateBingos()
 }
 
 function getNewCardURL(year) {
@@ -102,6 +114,60 @@ function getNewCardURL(year) {
 	url += `?year=${year}`
 	url += `&seed=${Math.floor(Math.random() * 99999)}`
 	return url
+}
+
+// The amount of bingos this user has obtained so far.
+var numBingos = 0
+
+function evaluateBingos() {
+	let currentBingos = 0
+	possibleBingos.forEach((line) => {
+		if (
+			line.every((index) => {
+				const current = document.getElementById(`cell-${index}`)
+
+				return current.className == "cell-checked"
+			})
+		)
+		currentBingos++
+	})
+
+	if (currentBingos == numBingos) {
+		// User changed a tile unrelated to bingos.
+		numBingos = currentBingos
+		return
+	} else if (numBingos > currentBingos) {
+		// User removed a tile previously used for a bingo.
+		const marquee = document.getElementById("bingo")
+		// If there are no more bingos, add back invis.
+		if (currentBingos == 0) {
+			marquee.classList.add("invis")
+		}
+		
+		marquee.innerText = `${numBingos} bingo${numBingos > 1 ? "s" : ""}`
+		numBingos = currentBingos
+		return
+	}
+
+	numBingos = currentBingos
+
+	if (numBingos > 0) {
+		setTimeout(() => {
+			confetti.addConfetti({
+				emojis: ["🍎", "🍏", "📱"],
+				confettiNumber: 20 * numBingos,
+			})
+		}, 1000)
+		const marquee = document.getElementById("bingo")
+		marquee.classList.remove("invis")
+		marquee.innerText = `${numBingos} bingo${numBingos > 1 ? "s" : ""}`
+	}
+
+	if (numBingos === possibleBingos.length) {
+		// Lets add a little easter egg just in case we fill a card
+		const marquee = document.getElementById("bingo")
+		marquee.innerText = "🍎".repeat(500)
+	}
 }
 
 // Fetch the data
@@ -128,6 +194,8 @@ function getNewCardURL(year) {
 	// we can include the free space
 	const finalCard = []
 
+	let cellCount = 0
+
 	for (let i = 0; i < 5; i++) {
 		const row = document.createElement("tr")
 
@@ -137,15 +205,19 @@ function getNewCardURL(year) {
 				// This is the free space
 				cell = document.createElement("td")
 				cell.innerText = "Good morning!"
+				cell.id = `cell-${cellCount}`
 				cell.className = "cell-checked"
 				finalCard.push({
 					phrase: "Free Space",
 					uttered: true,
 				})
+				cellCount += 1;
 			} else {
 				const cellData = shuffled.shift()
 				finalCard.push(cellData)
-				cell = createBingoCell(cellData.phrase, cellData.uttered)
+				const cellIndex = ((i + 1) * (j + 1)) - 1;
+				cell = createBingoCell(cellData.phrase, cellData.uttered, cellCount)
+				cellCount += 1;
 			}
 			row.appendChild(cell)
 		}
@@ -164,31 +236,5 @@ function getNewCardURL(year) {
 	newCard.className = "new-card-button"
 	document.querySelector("body").appendChild(newCard)
 
-	let numBingos = 0
-	possibleBingos.forEach((line) => {
-		if (
-			line.every((index) => {
-				return finalCard[index].uttered === true
-			})
-		)
-			numBingos++
-	})
-
-	if (numBingos > 0) {
-		setTimeout(() => {
-			confetti.addConfetti({
-				emojis: ["🍎", "🍏", "📱"],
-				confettiNumber: 20 * numBingos,
-			})
-		}, 1000)
-		const marquee = document.getElementById("bingo")
-		marquee.classList.remove("invis")
-		marquee.innerText = `${numBingos} bingo${numBingos > 1 ? "s" : ""}`
-	}
-
-	if (numBingos === possibleBingos.length) {
-		// Lets add a little easter egg just in case we fill a card
-		const marquee = document.getElementById("bingo")
-		marquee.innerText = "🍎".repeat(500)
-	}
+	evaluateBingos()
 })()
