@@ -246,4 +246,4 @@ setInterval(async () => {
 			toggleChecked({target:cell})
 		}
 	}
-}, 30000)
+}, 120000)
