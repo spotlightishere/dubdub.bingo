@@ -239,6 +239,9 @@ function evaluateBingos() {
 	evaluateBingos()
 })()
 
+
+// TODO: Uncomment next time real-time is needed
+/*
 setInterval(async () => {
 	const updated = Object.fromEntries((await(await fetch(`./wwdc-${params.year}.json`)).json()).map(e=>[e.phrase, e.uttered]))
 	for(const cell of document.querySelectorAll("td")) {
@@ -247,3 +250,4 @@ setInterval(async () => {
 		}
 	}
 }, 120000)
+*/
