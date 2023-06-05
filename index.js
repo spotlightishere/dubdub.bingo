@@ -238,3 +238,12 @@ function evaluateBingos() {
 
 	evaluateBingos()
 })()
+
+setInterval(async () => {
+	const updated = Object.fromEntries((await(await fetch(`./wwdc-${params.year}.json`)).json()).map(e=>[e.phrase, e.uttered]))
+	for(const cell of document.querySelectorAll("td")) {
+  		if(cell.className === "cell-unchecked" && updated[cell.innerText]) {
+			toggleChecked({target:cell})
+		}
+	}
+}, 30000)
