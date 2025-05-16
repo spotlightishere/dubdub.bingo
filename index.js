@@ -164,7 +164,7 @@ function evaluateBingos() {
 	}
 
 	if (numBingos === possibleBingos.length) {
-		// Lets add a little easter egg just in case we fill a card
+		// Let's add a little easter egg, just in case we fill a card.
 		const marquee = document.getElementById("bingo")
 		marquee.innerText = "🍎".repeat(500)
 	}
@@ -215,14 +215,13 @@ function evaluateBingos() {
 					phrase: "Free Space",
 					uttered: true,
 				})
-				cellCount += 1;
 			} else {
 				const cellData = shuffled.shift()
 				finalCard.push(cellData)
-				const cellIndex = ((i + 1) * (j + 1)) - 1;
 				cell = createBingoCell(cellData.phrase, cellData.uttered, cellCount)
-				cellCount += 1;
 			}
+
+			cellCount += 1;
 			row.appendChild(cell)
 		}
 
