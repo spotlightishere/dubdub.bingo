@@ -177,13 +177,17 @@ function evaluateBingos() {
 	document.getElementById("loading").remove()
 
 	if (response.status === 404) {
-		// Whoops, looks like we haven't done this month's card yet
+		// Whoops, looks like we haven't done this year's card yet
 		const whoops = document.createElement("p")
 		whoops.innerText =
-			"Whoops, looks like we haven't made a card for this month yet, check back later"
+			"Whoops, looks like we haven't made a card for this year yet, check back later"
 		document.querySelector("body").appendChild(whoops)
 		return
 	}
+
+	// Update our title to include the last two digits current year (e.g. year 2023 -> WWDC23).
+	const lastTwoDigits = params.year % 100;
+	document.getElementById("current-year").innerHTML = `${lastTwoDigits}`
 
 	const data = await response.json()
 
