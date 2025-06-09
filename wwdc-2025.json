@@ -29,15 +29,15 @@
   },
   {
     "phrase": "Feature released later this year",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "“the environment”",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "Hair Force One shot",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "Apple Park Timelapse",
@@ -45,7 +45,7 @@
   },
   {
     "phrase": "Automatic",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "We love the Mac",
@@ -53,7 +53,7 @@
   },
   {
     "phrase": "“improved battery life”",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "One more thing",
@@ -61,7 +61,7 @@
   },
   {
     "phrase": "Tryhard meme segment",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "“from the ground up”",
@@ -69,15 +69,15 @@
   },
   {
     "phrase": "Crack marketing team",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "Protecting our customers",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "User privacy mention",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "App Store stats",
@@ -85,15 +85,15 @@
   },
   {
     "phrase": "Bento boxes",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "California",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "Exec in a high place",
-    "uttered": true
+    "uttered": false
   },
   {
     "phrase": "Fitness center shot",
@@ -113,6 +113,6 @@
   },
   {
     "phrase": "“best in class ___”",
-    "uttered": true
+    "uttered": false
   }
 ]
