@@ -49,11 +49,11 @@
   },
   {
     "phrase": "We love the Mac",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "“improved battery life”",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "One more thing",
@@ -161,7 +161,7 @@
   },
   {
     "phrase": "No new hardware",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "New Siri features are waitlisted",
