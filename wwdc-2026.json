@@ -149,7 +149,7 @@
   },
   {
     "phrase": "Siri in Camera app",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Natural language to generate Shortcuts",
@@ -197,7 +197,7 @@
   },
   {
     "phrase": "New Genmoji model",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Liquid Glass opacity slider",
