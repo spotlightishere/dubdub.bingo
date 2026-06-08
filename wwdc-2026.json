@@ -189,11 +189,11 @@
   },
   {
     "phrase": "AI provider “extensions”",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Core ML is gone, Core AI is in",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "New Genmoji model",
