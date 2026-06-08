@@ -41,11 +41,11 @@
   },
   {
     "phrase": "Apple Park Timelapse",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Automatic",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "We love the Mac",
@@ -89,7 +89,7 @@
   },
   {
     "phrase": "California",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Exec in a high place",
@@ -109,7 +109,7 @@
   },
   {
     "phrase": "Immense coverage of UI refresh",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "“best in class ___”",
@@ -141,7 +141,7 @@
   },
   {
     "phrase": "Better battery on old devices",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "Better autocorrect",
