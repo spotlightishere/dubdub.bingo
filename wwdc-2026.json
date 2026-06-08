@@ -77,7 +77,7 @@
   },
   {
     "phrase": "User privacy mention",
-    "uttered": false
+    "uttered": true
   },
   {
     "phrase": "App Store stats",
